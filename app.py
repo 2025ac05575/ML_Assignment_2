@@ -10,6 +10,8 @@ Features:
 """
 
 import json
+from pathlib import Path
+
 import joblib
 import numpy as np
 import pandas as pd
@@ -25,20 +27,28 @@ from sklearn.metrics import (
 
 st.set_page_config(page_title="ML Assignment 2 - Classifier Demo", layout="wide")
 
+# Resolve all paths relative to THIS script's location, not the current
+# working directory. Streamlit Cloud can launch the app from different
+# working directories depending on deployment settings, so relative paths
+# like "model/..." or "../model/..." are unreliable and cause
+# FileNotFoundError. Anchoring to __file__ always works.
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_DIR = BASE_DIR / "model"
+
 MODEL_FILES = {
-    "Logistic Regression": "model/logistic_regression.pkl",
-    "Decision Tree": "model/decision_tree.pkl",
-    "kNN": "model/knn.pkl",
-    "Naive Bayes": "model/naive_bayes.pkl",
-    "Random Forest": "model/random_forest.pkl",
+    "Logistic Regression": MODEL_DIR / "logistic_regression.pkl",
+    "Decision Tree": MODEL_DIR / "decision_tree.pkl",
+    "kNN": MODEL_DIR / "knn.pkl",
+    "Naive Bayes": MODEL_DIR / "naive_bayes.pkl",
+    "Random Forest": MODEL_DIR / "random_forest.pkl",
 }
 
 
 @st.cache_resource
 def load_artifacts():
-    scaler = joblib.load("model/scaler.pkl")
-    feature_names = joblib.load("model/feature_names.pkl")
-    with open("../model/target_names.json") as f:
+    scaler = joblib.load(MODEL_DIR / "scaler.pkl")
+    feature_names = joblib.load(MODEL_DIR / "feature_names.pkl")
+    with open(MODEL_DIR / "target_names.json") as f:
         target_names = json.load(f)
     models = {name: joblib.load(path) for name, path in MODEL_FILES.items()}
     return scaler, feature_names, target_names, models
