@@ -38,7 +38,7 @@ MODEL_FILES = {
 def load_artifacts():
     scaler = joblib.load("model/scaler.pkl")
     feature_names = joblib.load("model/feature_names.pkl")
-    with open("model/target_names.json") as f:
+    with open("../model/target_names.json") as f:
         target_names = json.load(f)
     models = {name: joblib.load(path) for name, path in MODEL_FILES.items()}
     return scaler, feature_names, target_names, models
