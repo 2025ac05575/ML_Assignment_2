@@ -35,7 +35,9 @@ demonstrate the models.
 
 ## c. GitHub Repository Link
 
-> `<PASTE YOUR GITHUB REPO LINK HERE AFTER YOU PUSH THE CODE>`
+[ML Repository URL](https://github.com/2025ac05575/ML_Assignment_2)
+
+Repository contains: app.py, requirements.txt, README.md, test_data.csv, and the model/ folder with all training code and saved model artifacts.
 
 ## d. Models Used
 
@@ -95,7 +97,8 @@ streamlit run app.py
 
 ## Live Streamlit App Link
 
-> `<PASTE YOUR DEPLOYED STREAMLIT APP LINK HERE>`
+[ML Streamlit App Link](https://mlassignment2-wkeftexeirqmqrjxbcmgdf.streamlit.app/)
+
 
 ## BITS Virtual Lab Screenshot
 
