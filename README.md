@@ -98,8 +98,3 @@ streamlit run app.py
 ## Live Streamlit App Link
 
 [ML Streamlit App Link](https://mlassignment2-wkeftexeirqmqrjxbcmgdf.streamlit.app/)
-
-
-## BITS Virtual Lab Screenshot
-
-> `<INSERT SCREENSHOT OF EXECUTION ON BITS VIRTUAL LAB HERE>`
